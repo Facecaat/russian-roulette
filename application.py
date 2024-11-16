@@ -1,6 +1,7 @@
 from players import create_players
 from time import sleep as wait
-from random import randint as rand
+from shots import Shots
+import messages
 
 players = create_players()
 
@@ -16,10 +17,10 @@ class Application:
                     raise ValueError
                 name_is_correct = False
             except ValueError as e:
-                print("Такого игрока нет в списке")
+                messages.player_does_not_exists()
 
     def run(self):
         self.first_move(players)
         while True:
-            wait(2)
-            print("Игрок выжил" if rand(1, 2) == 2 else "Игрок помер")
+            test = input("Программа в run: ")
+
