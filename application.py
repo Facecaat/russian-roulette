@@ -3,10 +3,14 @@ from time import sleep as wait
 from shots import Shots
 from manager import Manager
 
-players = create_players()
+
 manager = Manager()
 
 class Application:
+    def __init__(self):
+        self.players = create_players()
+        self.shots = Shots()
+        self.current_player_index = 0
 
     def first_move(self, players):
         name_is_correct = True
@@ -18,10 +22,10 @@ class Application:
                     raise ValueError
                 name_is_correct = False
             except ValueError as e:
-                manager.player_does_not_exists()
+                print(manager.player_does_not_exists())
 
     def run(self):
-        self.first_move(players)
+        self.first_move(self.players)
         while True:
             test = input("Программа в run: ")
 
