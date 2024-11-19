@@ -27,5 +27,5 @@ class Application:
     def run(self):
         self.first_move(self.players)
         while True:
-            test = input("Программа в run: ")
+            trigger = shots.bullets(shots.deadly_bullet)
 
