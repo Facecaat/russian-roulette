@@ -1,5 +1,5 @@
 from players import create_players
-from time import sleep as wait
+
 from shots import Shots
 from manager import Manager
 
@@ -28,5 +28,6 @@ class Application:
     def run(self):
         self.first_move(self.players)
         while True:
+            manager.pause(2)
             trigger = self.shots.bullets(self.shots.deadly_bullet)
 

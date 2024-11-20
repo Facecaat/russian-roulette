@@ -1,3 +1,5 @@
+from time import sleep as wait
+
 class Manager():
     def player_does_not_exists(self):
         return "Такого игрока нет в списке"
@@ -22,3 +24,6 @@ class Manager():
             players_list.append(input("Введите имя игрока: "))
         return players_list
 
+    def pause(self, sec):
+        self.sec = sec
+        return wait(sec)
