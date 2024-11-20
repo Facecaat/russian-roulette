@@ -6,6 +6,7 @@ from manager import Manager
 
 manager = Manager()
 
+
 class Application:
     def __init__(self):
         self.players = create_players()
@@ -27,5 +28,5 @@ class Application:
     def run(self):
         self.first_move(self.players)
         while True:
-            trigger = shots.bullets(shots.deadly_bullet)
+            trigger = self.shots.bullets(self.shots.deadly_bullet)
 
