@@ -28,6 +28,13 @@ class Application:
     def run(self):
         self.first_move(self.players)
         while True:
+            manager.start_game_message()
             manager.pause(2)
-            trigger = self.shots.bullets(self.shots.deadly_bullet)
+            for bullet in self.shots.bullets:
+                if bullet:
+                    print("Игрок выжил")
+                else:
+                    print("Игрок умер")
+
+
 

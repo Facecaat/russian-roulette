@@ -27,3 +27,7 @@ class Manager():
     def pause(self, sec):
         self.sec = sec
         return wait(sec)
+
+    def start_game_message(self):
+        print("Начинаем игру")
+
