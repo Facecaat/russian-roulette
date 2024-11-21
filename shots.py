@@ -8,5 +8,4 @@ class Shots:
     def shoot(self):
         pass
 
-#todo добавь перемешку true и false и итерируясь по bullets будет решать сдох
-#todo или не сдох
+#настроить выстрелы
