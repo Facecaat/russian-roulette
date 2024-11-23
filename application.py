@@ -1,4 +1,4 @@
-from players import create_players
+from players import create_players, current_player
 
 from shots import Shots
 from manager import Manager
@@ -11,7 +11,7 @@ class Application:
     def __init__(self):
         self.players = create_players()
         self.shots = Shots()
-        self.current_player_index = 0
+        self.current_player = current_player(self.players[0])
 
     def first_move(self, players):
         name_is_correct = True
@@ -27,7 +27,9 @@ class Application:
 
     def run(self):
         self.first_move(self.players)
-        while True:
+        global game_run
+        game_run = True
+        while game_run:
             manager.start_game_message()
             manager.pause(2)
             for bullet in self.shots.bullets:
@@ -35,6 +37,12 @@ class Application:
                     print("Игрок выжил")
                 else:
                     print("Игрок умер")
+                    game_run = False
+                    break
+
+                print("Наводим пистолет на игрока")
+                manager.pause(2)
+
 
 
 
