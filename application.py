@@ -1,17 +1,17 @@
-from players import create_players, current_player
+from players import InteractionWithPlayer
 
 from shots import Shots
 from manager import Manager
 
 
 manager = Manager()
-
+player_interaction = InteractionWithPlayer()
 
 class Application:
     def __init__(self):
-        self.players = create_players()
+        self.players = player_interaction.create_players()
         self.shots = Shots()
-        self.current_player = current_player(self.players[0])
+        self.current_player = player_interaction.current_player(self.players[0])
 
     def first_move(self, players):
         name_is_correct = True
