@@ -1,6 +1,8 @@
 from manager import Manager
 
 manager_for_players = Manager()
+
+
 class InteractionWithPlayer:
     def create_players(self, players_list=None):
         if players_list is None:
@@ -17,7 +19,9 @@ class InteractionWithPlayer:
     def next_player(self, player, players):
         self.player = player
         self.players = players
-        if self.player != self.players[-1]:
-           # self.player != player next
-#todo надо current_player подставить того, кого указали первым плеером а потом
-#todo итерировать их дальше
+        self.player_index = self.players.index(self.player)
+        if self.player == self.players[-1]:
+            self.player = self.players[0]
+        else:
+            self.player = self.players[self.player_index + 1]
+        return self.player
