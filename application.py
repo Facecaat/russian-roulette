@@ -31,17 +31,17 @@ class Application:
         global game_run
         game_run = True
         while game_run:
+            bullet_counter = 6
             manager.start_game_message()
             manager.pause(2)
             for bullet in self.shots.bullets:
                 if bullet:
-                    print(f"{self.current_player} выжил")
+                    manager.shoot_is_good(self.current_player, bullet_counter)
                 else:
-                    print(f"{self.current_player} погиб")
+                    manager.shoot_is_bad(self.current_player)
                     game_run = False
                     break
+                bullet_counter -= 1
                 self.current_player = player_interaction.next_player(self.current_player, self.players)
-                print(f"Наводим пистолет на {self.current_player}")
-                manager.pause(1)
-                print("Выстрел!")
-                manager.pause(1)
+                manager.aim_to(self.current_player)
+                manager.shoot()

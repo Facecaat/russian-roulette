@@ -1,15 +1,32 @@
 from time import sleep as wait
 
+
 class Manager():
+    def bullets_true_naming(self, bullets):
+        if bullets in [5, 6]:
+            return f"{bullets} пуль"
+        elif bullets in [2, 3, 4]:
+            return f"{bullets} пули"
+        else:
+            return f"{bullets} пуля"
+
     def player_does_not_exists(self):
         return "Такого игрока нет в списке"
 
     def shoot_is_good(self, player, bullet):
-        print(f"{player} выжил. Осталось {bullet} пуль")
+        print(f"{player} выжил. Осталось {self.bullets_true_naming(bullet)}")
 
     def shoot_is_bad(self, player):
         print(f"{player} прострелил себе голову")
-        print("Круг закончен!")
+        print("Игра закончена!")
+
+    def aim_to(self, player):
+        print(f"Наводим пистолет на {player}")
+        wait(1)
+
+    def shoot(self):
+        print("Выстрел!")
+        wait(1)
 
     def first_player(self):
         first_player = input("Введите имя игрока, который начнет игру: ")
@@ -24,10 +41,5 @@ class Manager():
             players_list.append(input("Введите имя игрока: "))
         return players_list
 
-    def pause(self, sec):
-        self.sec = sec
-        return wait(sec)
-
     def start_game_message(self):
         print("Начинаем игру")
-
