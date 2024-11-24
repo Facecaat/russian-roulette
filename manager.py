@@ -16,6 +16,9 @@ class Manager():
     def players_amount_is_not_correct(self):
         return "Количество игроков должно быть от 2 до 6"
 
+    def player_name_already_exist(self):
+        return "Такое имя игрока уже есть"
+
     def shoot_is_good(self, player, bullet):
         print(f"{player} выжил. Осталось {self.bullets_true_naming(bullet)}")
 
@@ -25,7 +28,7 @@ class Manager():
 
     def aim_to(self, player):
         print(f"Наводим пистолет на {player}")
-        wait(1)
+        wait(2)
 
     def shoot(self):
         print("Выстрел!")
@@ -47,9 +50,22 @@ class Manager():
                 print(self.players_amount_is_not_correct())
         return self.players_amount
 
+    def name_does_not_exist(self, players):
+        while True:
+            name = input("Введите имя игрока: ")
+            if name not in players:
+                return name
+            else:
+                print(self.player_name_already_exist())
+
+
     def player_append(self, amount, players_list):
         for player in range(amount):
-            players_list.append(input("Введите имя игрока: "))
+            player_name = self.name_does_not_exist(players_list)
+            if player_name:
+                players_list.append(player_name)
+            else:
+                break
         return players_list
 
     def start_game_message(self):
