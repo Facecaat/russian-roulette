@@ -13,6 +13,9 @@ class Manager():
     def player_does_not_exists(self):
         return "Такого игрока нет в списке"
 
+    def players_amount_is_not_correct(self):
+        return "Количество игроков должно быть от 2 до 6"
+
     def shoot_is_good(self, player, bullet):
         print(f"{player} выжил. Осталось {self.bullets_true_naming(bullet)}")
 
@@ -33,8 +36,16 @@ class Manager():
         return first_player
 
     def amount_of_players(self):
-        players_amount = int(input("Введите количество игроков: "))
-        return players_amount
+        while True:
+            try:
+                self.players_amount = int(input("Введите количество игроков: "))
+                if 2 <= self.players_amount <= 6:
+                    break
+                else:
+                    raise ValueError
+            except ValueError as e:
+                print(self.players_amount_is_not_correct())
+        return self.players_amount
 
     def player_append(self, amount, players_list):
         for player in range(amount):

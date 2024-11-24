@@ -1,5 +1,4 @@
 from players import InteractionWithPlayer
-
 from shots import Shots
 from manager import Manager
 
