@@ -6,7 +6,3 @@ class Shots:
         self.bullets = [True] * 5 + [False]
         shuf(self.bullets)
 
-    def shoot(self):
-        pass
-
-# настроить выстрелы

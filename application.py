@@ -33,7 +33,6 @@ class Application:
         while game_run:
             bullet_counter = 6
             manager.start_game_message()
-            manager.pause(2)
             for bullet in self.shots.bullets:
                 if bullet:
                     manager.shoot_is_good(self.current_player, bullet_counter)
