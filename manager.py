@@ -21,6 +21,7 @@ class Manager():
 
     def shoot_is_good(self, player, bullet):
         print(f"{player} выжил. Осталось {self.bullets_true_naming(bullet)}")
+        wait(1)
 
     def shoot_is_bad(self, player):
         print(f"{player} прострелил себе голову")

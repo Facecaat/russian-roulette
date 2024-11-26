@@ -10,8 +10,8 @@ class Application:
     def __init__(self):
         self.players = player_interaction.create_players()
         self.shots = Shots()
-        self.current_player = player_interaction.current_player(self.players[0])
-        self.next_player = player_interaction.next_player(self.current_player, self.players)
+
+
 
     def first_move(self, players):
         name_is_correct = True
@@ -25,8 +25,10 @@ class Application:
             except ValueError as e:
                 print(manager.player_does_not_exists())
 
+            return players.index(first_player)
+
     def run(self):
-        self.first_move(self.players)
+        self.current_player = self.players[self.first_move(self.players)]
         global game_run
         game_run = True
         while game_run:

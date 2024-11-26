@@ -12,9 +12,6 @@ class InteractionWithPlayer:
 
         return players_list
 
-    def current_player(self, player):
-        self.player = player
-        return self.player
 
     def next_player(self, player, players):
         self.player = player
