@@ -11,8 +11,6 @@ class Application:
         self.players = player_interaction.create_players()
         self.shots = Shots()
 
-
-
     def first_move(self, players):
         self.players = players
         return players.index(manager.first_player(self.players))
