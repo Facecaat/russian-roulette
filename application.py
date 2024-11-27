@@ -14,18 +14,8 @@ class Application:
 
 
     def first_move(self, players):
-        name_is_correct = True
         self.players = players
-        while name_is_correct:
-            try:
-                first_player = manager.first_player()
-                if first_player not in self.players:
-                    raise ValueError
-                name_is_correct = False
-            except ValueError as e:
-                print(manager.player_does_not_exists())
-
-            return players.index(first_player)
+        return players.index(manager.first_player(self.players))
 
     def run(self):
         self.current_player = self.players[self.first_move(self.players)]

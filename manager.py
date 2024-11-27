@@ -35,8 +35,16 @@ class Manager():
         print("Выстрел!")
         wait(1)
 
-    def first_player(self):
-        first_player = input("Введите имя игрока, который начнет игру: ")
+    def first_player(self, players):
+        while True:
+            try:
+                first_player = input("Введите имя игрока, который начнет игру: ")
+                if first_player not in players:
+                    raise ValueError
+                break
+            except ValueError as e:
+                print(self.player_does_not_exists())
+
         return first_player
 
     def amount_of_players(self):
