@@ -6,4 +6,5 @@ if __name__ == '__main__':
 
 #todo добавь exceptions
 #todo добавь автотесты
+#todo подумай про tkinter/альтернативе
 
