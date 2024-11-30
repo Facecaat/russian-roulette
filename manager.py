@@ -1,8 +1,9 @@
-from exceptions import PlayerDoesNotExist
+from exceptions import PlayerDoesNotExist, PlayerAlreadyExist, WrongPlayersAmount
 
 
 class Manager():
 
+#удалить два нижних def и добавить их ексепшенами ниже
     def players_amount_is_not_correct(self):
         return "Количество игроков должно быть от 2 до 6"
 
