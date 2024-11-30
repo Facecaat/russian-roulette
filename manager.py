@@ -1,24 +1,24 @@
+from exceptions import PlayerDoesNotExist
+
+
 class Manager():
+
     def players_amount_is_not_correct(self):
         return "Количество игроков должно быть от 2 до 6"
 
     def player_name_already_exist(self):
         return "Такое имя игрока уже есть"
 
-    def player_does_not_exists(self):
-        return "Такого игрока нет в списке"
-
     def first_player(self, players):
         while True:
             try:
                 first_player = input("Введите имя игрока, который начнет игру: ")
-                if first_player not in players:
-                    raise ValueError
-                break
-            except ValueError as e:
-                print(self.player_does_not_exists())
-
-        return first_player
+                if first_player in players:
+                    return first_player
+                else:
+                    raise PlayerDoesNotExist
+            except PlayerDoesNotExist as e:
+                print(e.message)
 
     def amount_of_players(self):
         while True:

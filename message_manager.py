@@ -10,8 +10,6 @@ class MessageManager():
         else:
             return f"{bullets} пуля"
 
-
-
     def shoot_is_good(self, player, bullet):
         print(f"{player} выжил. Осталось {self.bullets_true_naming(bullet)}")
         wait(1)
